@@ -1,20 +1,55 @@
 ﻿@model IEnumerable<MusicBud.Models.Release>
-
 @{
     ViewData["Title"] = "Home Page";
 }
 
+@*<div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>*@
+
 <div class="row">
     @foreach (var item in Model)
     {
-    <div class="card m-1" style="width:350px;">
-        <div class="card-body">
-            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Artists)</h5>
-            <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayFor(modelItem => item.Name)</h6>
-            <p class="card-text">@Html.DisplayFor(modelItem => item.Date)</p>
-            <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" width="300" height="300" alt="Release picture" />
-            <a href="@Html.DisplayFor(modelItem => item.Link)" target="_blank">Listen</a>
+        <div class="card m-1" style="width:350px;">
+            <div class="card-body">
+                <h5 class="card-title">@Html.DisplayFor(modelItem => item.Artists)</h5>
+                <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayFor(modelItem => item.Name)</h6>
+                <p class="card-text">@Html.DisplayFor(modelItem => item.Date)</p>
+                <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" width="300" height="300" alt="Release picture" />
+                <a href="@Html.DisplayFor(modelItem => item.Link)" target="_blank">Listen</a>
+            </div>
         </div>
-    </div>
     }
 </div>
+
+<!-- main-top -->
+<section class="main-top pt-5 pt-sm-0 pt-md-5">
+    <article class="row mx-4 px-2 py-7">
+        <div class="mt-text-btn col-sm-8 col-lg-7">
+            <div class="m-text mt-text">
+                <h1>Try Premium free for 3 months</h1>
+                <h2 class="pt-3">Play millions of songs ad-free, on-demand, and offline.</h2>
+            </div>
+            <div class="mt-btn py-5">
+                <a class="btn btn-black" href="#"><span>view plans</span></a>
+            </div>
+        </div>
+        <div class="mt-img col-sm-12 col-lg-5 my-5">
+            <img class="img-fluid" src="~/img/holiday-2019-image1.png" alt="">
+        </div>
+    </article>
+</section>
+
+<!-- main-bottom -->
+<section class="main-bottom">
+    <article class="mx-4 px-2 py-5">
+        <div class="m-text mb-text">
+            <h1>Spotify Free</h1>
+            <h2 class="pt-3">Millions of songs. No credit card needed.</h2>
+        </div>
+        <div class="mb-btn pt-5">
+            <a class="btn btn-green" href="#"><span>Get Spotify Free</span></a>
+        </div>
+    </article>
+</section>
