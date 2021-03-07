@@ -84,7 +84,7 @@ header {
 
     .top-nav li a:hover,
     .mob-top-nav li:hover a {
-        color: #1ed760 !important;
+        color: #9c015e !important;
     }
 
 .mob-top-nav .separator {
@@ -158,7 +158,7 @@ footer {
     }
 
         footer a:hover {
-            color: #1db954;
+            color: #9c015e;
         }
 
     footer nav {

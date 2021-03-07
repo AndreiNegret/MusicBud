@@ -5,8 +5,8 @@ var canvas = document.getElementById('canvas'),
     w = canvas.width = window.innerHeight,
     h = canvas.height = window.innerWidth,
     points = [],
-    amount = 320, // relative to screen size
-    speed = 24,
+    amount = 400, // relative to screen size
+    speed = 36,
     size = 2,
     lineWidth = 1.4,
     connectionDistance = 210,

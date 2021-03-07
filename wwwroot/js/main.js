@@ -2,26 +2,42 @@
 (function ($) {
     "use strict";
 
-        // Click to Scroll TOP
-        $(".scroll-top").click(function () {
-            $('html, body').animate({
-                scrollTop: 0
-            }, 1500);
-        }); //Scroll TOP End
+    jQuery(document).ready(function ($) {
+        /*---------------------------------
+         All Window Scroll Function Start
+        --------------------------------- */
+        $(window).scroll(function () {
 
+            // Header Fix Js Here
+            if ($(window).scrollTop() >= 200) {
+                $('#header-area').addClass('fixTotop');
+            } else {
+                $('#header-area').removeClass('fixTotop');
+            }
 
-   /*jQuery(window).load(function () {
-        jQuery('.preloader').fadeOut();
-        jQuery('.preloader-spinner').delay(350).fadeOut('slow');
-        jQuery('body').removeClass('loader-active');
-    }); //window load End */
+            // Scroll top Js Here
+            if ($(window).scrollTop() >= 400) {
+                $('.scroll-top').slideDown(400);
+            } else {
+                $('.scroll-top').slideUp(400);
+            }
+        });
+        /*--------------------------------
+            All Window Scroll Function End
+        --------------------------------- */
+    });
+    // Click to Scroll TOP
+    $(".scroll-top").click(function () {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 1500);
+    }); //Scroll TOP End
+
 
     setTimeout(function () {
         $('.preloader-spinner').delay(150).fadeOut('slow');
         $('.preloader').fadeOut('slow');
         $('body').removeClass('loader-active');
-    }, 2000);
+    }, 1500);
 
 }(jQuery));
-
-

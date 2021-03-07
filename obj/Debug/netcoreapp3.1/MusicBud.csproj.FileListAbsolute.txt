@@ -75,7 +75,6 @@ C:\Users\Andrei Negret\source\repos\MusicBud\obj\Debug\netcoreapp3.1\MusicBud.Ta
 C:\Users\Andrei Negret\source\repos\MusicBud\obj\Debug\netcoreapp3.1\MusicBud.TagHelpers.output.cache
 C:\Users\Andrei Negret\source\repos\MusicBud\obj\Debug\netcoreapp3.1\MusicBud.RazorCoreGenerate.cache
 C:\Users\Andrei Negret\source\repos\MusicBud\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
-C:\Users\Andrei Negret\source\repos\MusicBud\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\Andrei Negret\source\repos\MusicBud\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Andrei Negret\source\repos\MusicBud\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Andrei Negret\source\repos\MusicBud\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
@@ -91,3 +90,5 @@ C:\Users\Andrei Negret\source\repos\MusicBud\obj\Debug\netcoreapp3.1\MusicBud.pd
 C:\Users\Andrei Negret\source\repos\MusicBud\obj\Debug\netcoreapp3.1\MusicBud.genruntimeconfig.cache
 C:\Users\Andrei Negret\source\repos\MusicBud\obj\Debug\netcoreapp3.1\Razor\Views\Home\Release.cshtml.g.cs
 C:\Users\Andrei Negret\source\repos\MusicBud\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\Andrei Negret\source\repos\MusicBud\obj\Debug\netcoreapp3.1\Razor\Views\Home\Contact.cshtml.g.cs
+C:\Users\Andrei Negret\source\repos\MusicBud\obj\Debug\netcoreapp3.1\Razor\Views\Home\About.cshtml.g.cs

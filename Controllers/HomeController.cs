@@ -28,7 +28,12 @@ namespace MusicBud.Controllers
             _spotifyService = spotifyService;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> Release()
         {
             var newReleases = await GetReleases();
 
@@ -53,7 +58,13 @@ namespace MusicBud.Controllers
             }
         }
 
-        public IActionResult Privacy()
+        public IActionResult About()
+        {
+            return View();
+        }
+
+
+        public IActionResult Contact()
         {
             return View();
         }
