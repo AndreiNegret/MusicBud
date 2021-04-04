@@ -1,9 +1,5 @@
 C:\Users\Andrei Negret\source\repos\MusicBud\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Andrei Negret\source\repos\MusicBud\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\Andrei Negret\source\repos\MusicBud\bin\Debug\netcoreapp3.1\TFLApi\config.json
-C:\Users\Andrei Negret\source\repos\MusicBud\bin\Debug\netcoreapp3.1\TFLApi\model.json
-C:\Users\Andrei Negret\source\repos\MusicBud\bin\Debug\netcoreapp3.1\TFLApi\package-lock.json
-C:\Users\Andrei Negret\source\repos\MusicBud\bin\Debug\netcoreapp3.1\TFLApi\package.json
 C:\Users\Andrei Negret\source\repos\MusicBud\bin\Debug\netcoreapp3.1\MusicBud.StaticWebAssets.xml
 C:\Users\Andrei Negret\source\repos\MusicBud\bin\Debug\netcoreapp3.1\MusicBud.exe
 C:\Users\Andrei Negret\source\repos\MusicBud\bin\Debug\netcoreapp3.1\MusicBud.deps.json

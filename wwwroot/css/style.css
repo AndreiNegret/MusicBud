@@ -6,17 +6,6 @@
 */
 
 
-/* Parallax
--------------------------------------------------------------- */
-.parallax {
-	width: auto;
-	background-attachment: fixed;
-	background-position: 50% 0;
-	
-	z-index: 9;
-}
-
-
 /* Preload
 
 -------------------------------------------------------------- */
@@ -89,3 +78,46 @@ body.loader-active {
 .container-fluid {
 	background: transparent;
 }
+
+/* Animated Background
+
+-------------------------------------------------------------- */
+body {
+	background: linear-gradient(-45deg, #303091, #9c015e, #23a6d5, #e73c7e);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+
+	50% {
+		background-position: 100% 50%;
+	}
+
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/* About page video & button
+
+-------------------------------------------------------------- */
+
+.btn {
+	width: auto;
+}
+
+.snapshot-camera-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.snapshot-camera {
+	width: 50%;
+}
+
