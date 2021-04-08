@@ -5,7 +5,7 @@ navigator.mediaDevices.getUserMedia({ video: true }) // request cam
         return vid.play(); // returns a Promise
     })
     .then(() => { // enable the button
-        const btn = document.querySelector('button');
+        const btn = document.querySelector('.take-snapshot');
         btn.disabled = false;
         btn.onclick = e => {
             takeASnap()

@@ -158,7 +158,7 @@ footer a {
 }
 
 footer a:hover {
-    color: #9c015e;
+    color: #f037a5;
 }
 
 footer nav {
@@ -202,7 +202,7 @@ footer nav {
 
 .fbl-text {
     font-size: 12px;
-    color: #919496;
+    color: #fff;
 }
 
 .fb-date {
@@ -298,4 +298,79 @@ footer nav {
 
 .waveAnimation .waveBottom {
     animation: move_wave 15s linear infinite;
+}
+
+/* defining camera animation for footer */
+@keyframes iconPulse {
+    0% {
+        transform: scale3d(1, 1, 1);
+        opacity: 0.99;
+    }
+
+    50% {
+        transform: scale3d(1.05, 1.05, 1.05);
+        opacity: 0.66;
+    }
+
+    100% {
+        transform: scale3d(1, 1, 1);
+        opacity: 0.99;
+    }
+}
+
+/* setting rules for pulsing */
+.camera-pulse {
+    animation: iconPulse 1s ease-in-out infinite;
+    color: crimson;
+}
+
+.camera-pulse:link,
+.camera-pulse:visited {
+    transition: all ease-in-out;
+}
+
+.camera-pulse-hover:hover,
+.camera-pulse-hover:active {
+    animation: iconPulse 1s ease-in-out infinite;
+    color: #9c015e;
+}
+
+.cam-position {
+    position: absolute;
+    top: 150px;
+    left: -100px;
+}
+
+.title-position {
+    top: 50px;
+    font-size: 30px;
+    position: absolute;
+    right: -70px;
+}
+
+/* demo styling */
+* {
+    box-sizing: border-box;
+}
+
+.view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem;
+    min-height: 100vh;
+}
+
+.example {
+    margin-bottom: 2.5rem;
+}
+
+.button-reset {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+    cursor: pointer;
 }
