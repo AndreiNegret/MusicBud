@@ -34,7 +34,7 @@
 
 <link href="~/css/CameraLens.css" rel="stylesheet" />
 
-<a href="#" class="container">
+<a class="container" id="start-cam">
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
          viewBox="0 0 180 180" enable-background="new 0 0 180 180" xml:space="preserve">
     <g class="outer">
@@ -61,18 +61,18 @@
 @*Varianta care merge*@
 <link href="~/css/webcam.css" rel="stylesheet" />
 
-<div class="snapshot-camera-container">
-    <video class="snapshot-camera"></video>
-    @*<button class="btn my-3">
-            Take a snapshot
-        </button>*@
+<div class="take-snapshot-container">
+    <div class="snapshot-camera-container">
+        <video class="snapshot-camera"></video>
+    </div>
+    <div class="photo-button my-3">
+        <a class="take-snapshot">
+            <div class="circle"></div>
+            <div class="ring"></div>
+        </a>
+    </div>
 </div>
-<div class="photo-button my-3">
-    <a class="take-snapshot">
-        <div class="circle"></div>
-        <div class="ring"></div>
-    </a>
-</div>
+
 
 
 

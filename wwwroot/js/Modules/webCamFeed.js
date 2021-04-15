@@ -16,31 +16,36 @@ navigator.mediaDevices.getUserMedia({ video: true }) // request cam
 function takeASnap() {
     const canvas = document.createElement('canvas'); // create a canvas
     const ctx = canvas.getContext('2d'); // get its context
-    canvas.width = vid.videoWidth; // set its size to the one of the video
-    canvas.height = vid.videoHeight;
+    const width = vid.videoWidth,
+        height = vid.videoHeight;
+    canvas.width = width; // set its size to the one of the video
+    canvas.height = height;
     ctx.drawImage(vid, 0, 0); // the video
     return new Promise((res, rej) => {
-        canvas.toBlob(res, 'image/jpeg'); // request a Blob from the canvas
+        //canvas.toBlob(res, 'image/jpeg'); // request a Blob from the canvas
+        res(ctx.getImageData(0, 0, width, height));
     });
 }
 
-function sendToServer(blob) {
+function sendToServer(imageData) {
     // uses the <a download> to download a Blob
-    const reader = new FileReader();
-    reader.readAsDataURL(blob);
-    reader.onloadend = function () {
-        const base64data = reader.result;
-        $.ajax({
-            type: 'POST',
-            url: 'http://localhost:1337',
-            contentType: 'application/json',
-            data: JSON.stringify({
-                imgData: base64data,
-                imgWidth: vid.videoWidth,
-                imgHeight: vid.videoHeight
-            }),
-            processData: false,
-            dataType: 'json'
-        });
-    }
+/*    const reader = new FileReader();*/
+    //reader.readAsDataURL(blob);
+    //reader.onloadend = function () {
+    //    const base64data = reader.result;
+    //}
+    console.log(imageData);
+    $.ajax({
+        type: 'POST',
+        url: 'http://localhost:1337',
+        data: imageData.data,
+        processData: false
+    });
 }
+
+$(document).ready(function () {
+    $('#start-cam').click(function () {
+        $('#start-cam').hide();
+        $('.take-snapshot-container').show();
+    });
+});

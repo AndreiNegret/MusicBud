@@ -116,7 +116,25 @@ body {
 	flex-direction: column;
 }
 
+.take-snapshot-container {
+	display: none;
+
+}
+
 .snapshot-camera {
 	width: 50%;
 }
 
+#start-cam {
+	position: relative;
+	top: 150px;
+}
+
+
+/* Latest release title & subtitle
+
+-------------------------------------------------------------- */
+
+#latest-releases .card-title, #latest-releases p {
+	color:#000000;
+}
