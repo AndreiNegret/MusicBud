@@ -22,25 +22,26 @@ function takeASnap() {
     canvas.height = height;
     ctx.drawImage(vid, 0, 0); // the video
     return new Promise((res, rej) => {
-        //canvas.toBlob(res, 'image/jpeg'); // request a Blob from the canvas
-        res(ctx.getImageData(0, 0, width, height));
+        canvas.toBlob(res, 'image/jpeg'); // request a Blob from the canvas
     });
 }
 
-function sendToServer(imageData) {
+function sendToServer(blob) {
     // uses the <a download> to download a Blob
-/*    const reader = new FileReader();*/
-    //reader.readAsDataURL(blob);
-    //reader.onloadend = function () {
-    //    const base64data = reader.result;
-    //}
-    console.log(imageData);
-    $.ajax({
-        type: 'POST',
-        url: 'http://localhost:1337',
-        data: imageData.data,
-        processData: false
-    });
+    const reader = new FileReader();
+    reader.readAsDataURL(blob);
+    reader.onloadend = function () {
+        const base64data = reader.result;
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:1337',
+            data: JSON.stringify({
+                imageData: base64data
+            }),
+            processData: false,
+            contentType: "application/json; charset=UTF-8"
+        });
+    }    
 }
 
 $(document).ready(function () {
