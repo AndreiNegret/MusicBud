@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using MusicBud.Data;
 using MusicBud.Services;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -64,6 +66,12 @@ namespace MusicBud
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions    //For the 'FaceDetectionModels folder' folder
+            {
+                FileProvider = new PhysicalFileProvider(System.IO.Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/FaceDetectionModels")),
+                RequestPath = "/FaceDetectionModels",
+                ServeUnknownFileTypes = true,
+            });
 
             app.UseRouting();
 

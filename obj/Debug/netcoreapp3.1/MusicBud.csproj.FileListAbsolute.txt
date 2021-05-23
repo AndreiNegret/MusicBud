@@ -125,3 +125,9 @@ C:\Users\Andrei Negret\source\repos\MusicBud\obj\Debug\netcoreapp3.1\MusicBud.dl
 C:\Users\Andrei Negret\source\repos\MusicBud\obj\Debug\netcoreapp3.1\MusicBud.pdb
 C:\Users\Andrei Negret\source\repos\MusicBud\obj\Debug\netcoreapp3.1\MusicBud.genruntimeconfig.cache
 C:\Users\Andrei Negret\source\repos\MusicBud\obj\Debug\netcoreapp3.1\MusicBud.csprojAssemblyReference.cache
+C:\Users\Andrei Negret\source\repos\MusicBud\bin\Debug\netcoreapp3.1\Emgu.CV.Platform.NetStandard.dll
+C:\Users\Andrei Negret\source\repos\MusicBud\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+C:\Users\Andrei Negret\source\repos\MusicBud\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\Andrei Negret\source\repos\MusicBud\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Andrei Negret\source\repos\MusicBud\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Andrei Negret\source\repos\MusicBud\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll

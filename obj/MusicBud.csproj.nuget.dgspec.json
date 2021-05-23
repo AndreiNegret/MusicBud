@@ -47,6 +47,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Emgu.CV": {
+              "target": "Package",
+              "version": "[4.5.1.4349, )"
+            },
             "IronPython": {
               "target": "Package",
               "version": "[2.7.11, )"
@@ -74,6 +78,10 @@
             "SciSharp.TensorFlow.Redist-Windows-GPU": {
               "target": "Package",
               "version": "[2.4.0, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[5.0.2, )"
             },
             "TensorFlow.Keras": {
               "target": "Package",
