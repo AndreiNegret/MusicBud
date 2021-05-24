@@ -85,12 +85,14 @@
                                 <a class="d-none lg-inline-block xl-inline-block" asp-area="" asp-controller="Home" asp-action="Release">Release</a>
                             </li>
                             <li class="separator d-none lg-inline-block xl-inline-block"></li>
-                            <li>
+                            @*<li>
                                 <a class="signin signin-font d-none lg-inline-block xl-inline-block" href="https://www.spotify.com/us/signup/">Sign up</a>
                             </li>
                             <li>
                                 <a class="signin signin-font d-none lg-inline-block xl-inline-block" href="https://www.spotify.com/us/account/overview/">Log In</a>
-                            </li>
+                            </li>*@
+                              <partial name="_LoginPartial" />
+
                             <li id="bars" onclick="mobNavShow()" class="inline-block sm-inline-block md-inline-block lg-none xl-none mr-2 p-0"><i class="fas fa-bars"></i></li>
                         </ul>
                     </nav>

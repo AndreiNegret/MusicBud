@@ -82,10 +82,10 @@ header {
     text-decoration: none;
 }
 
-    .top-nav li a:hover,
-    .mob-top-nav li:hover a {
-        color: #9c015e !important;
-    }
+.top-nav li a:hover,
+.mob-top-nav li:hover a {
+    color: #9c015e !important;
+}
 
 .mob-top-nav .separator {
     transform: rotate(90deg);
@@ -373,4 +373,8 @@ footer nav {
     margin: 0;
     display: block;
     cursor: pointer;
+}
+
+.action:hover {
+    color: #9c015e !important;
 }

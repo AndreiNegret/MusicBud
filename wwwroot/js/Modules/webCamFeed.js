@@ -8,6 +8,7 @@ Promise.all([
 ]).then(startVideo);
 
 function startVideo() {
+    if (navigator.mediaDevices.getUserMedia) {
     navigator.mediaDevices.getUserMedia({ video: true }) // request cam
         .then(stream => {
             vid.srcObject = stream; // don't use createObjectURL(MediaStream)
@@ -21,6 +22,7 @@ function startVideo() {
                     .then(sendToServer);
             };
         });
+    }
 }
 
 function takeASnap() {
@@ -49,9 +51,16 @@ function sendToServer(blob) {
                 imageData: base64data
             }),
             processData: false,
+            success(res) {
+                openModalMessage(res);
+            },
             contentType: "application/json; charset=UTF-8"
         });
     }    
+}
+
+function openModalMessage(res) {
+    console.log(res);
 }
 
 let camIsShown = false,
@@ -59,6 +68,7 @@ let camIsShown = false,
     canvas = null;
 
 function initFaceDetection() {
+ 
     const videoRect = document.querySelector('.snapshot-camera').getBoundingClientRect();
     canvas.width = videoRect.width;
     canvas.height = videoRect.height;
@@ -96,7 +106,7 @@ vid.addEventListener('play', (evt) => {
         const detections = await faceapi.detectAllFaces(vid, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
         const resizedDetections = faceapi.resizeResults(detections, displaySize);
         canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
-        //faceapi.draw.drawDetections(canvas, resizedDetections);
+        faceapi.draw.drawDetections(canvas, resizedDetections);
         faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
         //faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
     }, 50);

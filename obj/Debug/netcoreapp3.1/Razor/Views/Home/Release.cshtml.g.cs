@@ -27,7 +27,7 @@ using MusicBud.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"133d7bba5e50c5bfee7512df055853b862888df8", @"/Views/Home/Release.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c2634bb1ff70e0107c6427bf759738e17bad5266", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b1296944977e45f7fd44c8712a14c3496cd9e6eb", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Release : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<MusicBud.Models.Release>>
     {
         #pragma warning disable 1998

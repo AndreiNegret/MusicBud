@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AspNetCore.ReCaptcha;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using MusicBud.Areas.Identity.Pages.Account;
 using MusicBud.Models;
 using MusicBud.Services;
 using System;
@@ -58,6 +61,7 @@ namespace MusicBud.Controllers
             }
         }
 
+        [Authorize]
         public IActionResult About()
         {
             return View();
@@ -68,6 +72,18 @@ namespace MusicBud.Controllers
         {
             return View();
         }
+
+        [ValidateReCaptcha]
+        [HttpPost]
+        public IActionResult Register(RegisterModel registerModel)
+        {
+            if (!ModelState.IsValid)
+                return View("Index");
+
+            TempData["Message"] = "Your form has been sent!";
+            return RedirectToAction("Index");
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
