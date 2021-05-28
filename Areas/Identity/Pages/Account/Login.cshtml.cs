@@ -90,7 +90,7 @@ namespace MusicBud.Areas.Identity.Pages.Account
                 {
                     _logger.LogInformation("User logged in.");
 
-                    return LocalRedirect(returnUrl);
+                    return LocalRedirect(returnUrl + "?loggedIn=true");
                 }
                 if (result.RequiresTwoFactor)
                 {

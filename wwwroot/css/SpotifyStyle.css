@@ -378,3 +378,15 @@ footer nav {
 .action:hover {
     color: #9c015e !important;
 }
+
+input[type=date] {
+    color: #000;
+}
+
+.my-form .form-control:focus, .form-control:active {
+    color: #fff;
+}
+
+#latest-releases a {
+    color:#9c015e;
+}

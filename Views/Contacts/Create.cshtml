@@ -1,21 +1,28 @@
-﻿@{
+﻿@model MusicBud.Models.Contact
+
+@{
     ViewData["Title"] = "Contact";
+    var statusMessage = TempData["statusMessage"];
 }
 
+<partial name="_StatusMessage" model="statusMessage" />
+
+
+<h1 class="center-text my-3">@ViewData["Title"]</h1>
 
 <link href="~/css/contact.css" rel="stylesheet" />
 <link href="~/css/map.css" rel="stylesheet" />
 <script defer src="~/js/contact.js"></script>
 <script src="~/js/map.js"></script>
 
-
 <section class="flat-submit style3 parallax parallax1">
-    <form class="my-form">
+    <form class="my-form" asp-action="Create">
         <div class="container">
             <h1>Get in touch!</h1>
             <ul>
                 <li>
-                    <select>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <select asp-for="Option">
                         <option selected disabled>-- Please choose an option --</option>
                         <option>Request Quote</option>
                         <option>Send Resume</option>
@@ -24,18 +31,23 @@
                 </li>
                 <li>
                     <div class="grid grid-2">
-                        <input type="text" placeholder="Name" required>
-                        <input type="text" placeholder="Surname" required>
+                        <input asp-for="Name" placeholder="Name" class="form-control" required />
+                        <input asp-for="Surname" placeholder="Surname" class="form-control" required  />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                        <span asp-validation-for="Surname" class="text-danger"></span>
                     </div>
                 </li>
                 <li>
                     <div class="grid grid-2">
-                        <input type="email" placeholder="Email" required>
-                        <input type="tel" placeholder="Phone">
+                        <input asp-for="Email" class="form-control" placeholder="Email" required />
+                        <input asp-for="Phone" class="form-control" placeholder="Phone" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                        <span asp-validation-for="Phone" class="text-danger"></span>
                     </div>
                 </li>
                 <li>
-                    <textarea placeholder="Message"></textarea>
+                    <textarea asp-for="Message" class="form-control" placeholder="Message"></textarea>
+                    <span asp-validation-for="Message" class="text-danger"></span>
                 </li>
                 <li>
                     <input type="checkbox" id="terms">
@@ -62,3 +74,14 @@
         </div>
     </form>
 </section>
+
+
+@section Scripts {
+    <script>
+        function showAlert() {
+            alert("Your Message is sent succesfully!");
+        }
+    </script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

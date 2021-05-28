@@ -7,18 +7,20 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using MusicBud.Models;
+using MusicBud.Services;
 
 namespace MusicBud.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class LogoutModel : PageModel
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
+        //private readonly SignInManager<User> _signInManager;
         private readonly ILogger<LogoutModel> _logger;
-
-        public LogoutModel(SignInManager<IdentityUser> signInManager, ILogger<LogoutModel> logger)
+        private readonly IAuthService _authenticationService;
+        public LogoutModel(IAuthService authenticationService, ILogger<LogoutModel> logger)
         {
-            _signInManager = signInManager;
+            _authenticationService = authenticationService;
             _logger = logger;
         }
 
@@ -28,7 +30,8 @@ namespace MusicBud.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPost(string returnUrl = null)
         {
-            await _signInManager.SignOutAsync();
+            //await _signInManager.SignOutAsync();
+            await _authenticationService.Logout();
             _logger.LogInformation("User logged out.");
             if (returnUrl != null)
             {

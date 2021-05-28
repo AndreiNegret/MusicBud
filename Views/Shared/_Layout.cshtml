@@ -79,7 +79,7 @@
                                 <a class="d-none lg-inline-block xl-inline-block" href="https://www.spotify.com/us/download/">Download</a>
                             </li>
                             <li>
-                                <a class="d-none lg-inline-block xl-inline-block" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                                <a class="d-none lg-inline-block xl-inline-block" asp-area="" asp-controller="Contacts" asp-action="Create">Contact</a>
                             </li>
                             <li>
                                 <a class="d-none lg-inline-block xl-inline-block" asp-area="" asp-controller="Home" asp-action="Release">Release</a>
@@ -91,7 +91,7 @@
                             <li>
                                 <a class="signin signin-font d-none lg-inline-block xl-inline-block" href="https://www.spotify.com/us/account/overview/">Log In</a>
                             </li>*@
-                              <partial name="_LoginPartial" />
+                            <partial name="_LoginPartial" />
 
                             <li id="bars" onclick="mobNavShow()" class="inline-block sm-inline-block md-inline-block lg-none xl-none mr-2 p-0"><i class="fas fa-bars"></i></li>
                         </ul>
@@ -99,7 +99,7 @@
                     <nav id="mobNav" class="mob-nav flex-sm flex-md lg-none p-0 pl-5 position-absolute">
                         <ul class="mob-top-nav flex-sm flex-md flex-column position-relative mt-0">
                             <li id="times" onclick="mobNavShow()" class="block mob-signin-font times ml-auto pt-3"><i class="fas fa-times"></i></li>
-                            <li><a class="mob-font mt-0 py-3 block" asp-area="" asp-controller="Home" asp-action="About" >About</a></li>
+                            <li><a class="mob-font mt-0 py-3 block" asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                             <li><a class="mob-font mt-0 py-3 block" href="https://www.spotify.com/us/premium/?checkout=false">Premium</a></li>
                             <li><a class="mob-font mt-0 py-3 block" href="https://support.spotify.com/">Help</a></li>
                             <li><a class="mob-font mt-0 py-3 block" href="https://www.spotify.com/us/download/">Download</a></li>
@@ -169,8 +169,8 @@
                         <dt class="title-position">Try MusicBud now!</dt>
                     </dl>
                 </div>
-                <div class="f-social col-md-12 col-lg-4" >
-                    <a class="button-reset camera-pulse-hover cam-position" asp-area="" asp-controller="Home" asp-action="About" >
+                <div class="f-social col-md-12 col-lg-4">
+                    <a class="button-reset camera-pulse-hover cam-position" asp-area="" asp-controller="Home" asp-action="About">
                         <i class="fas fa-camera-alt fa-4x fa-fw"></i>
                     </a>
                     <ul class="flex jc-start jc-lg-end">
@@ -202,6 +202,34 @@
             <img src="~/images/up-purp-512.png" height="250" width="250" alt="JSOFT" />
         </div>
         <!--== Scroll Top Area End ==-->
+        <!--== Pop-up menu after successful login ==-->
+        @if (User.Identity.IsAuthenticated)
+        {
+            <script>
+                function getParameterByName(name, url) {
+                    if (!url) url = window.location.href;
+                    name = name.replace(/[\[\]]/g, '\\$&');
+                    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                        results = regex.exec(url);
+                    if (!results) return null;
+                    if (!results[2]) return '';
+                    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+                }
+
+                if (getParameterByName('loggedIn') === 'true') {
+                    $('.modal').modal('show');
+                    $("#login-confirmation-modal").modal('toggle');
+                }
+            </script>
+
+            <script>
+                $(document).ready(function () {
+                    $('[data-dismiss="modal"]').click(function () {
+                        $('.modal-backdrop').hide();
+                    });
+                });
+            </script>
+        }
 
 
         @RenderSection("Styles", false)

@@ -10,6 +10,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using MusicBud.Data;
+using MusicBud.Models;
+using MusicBud.Repository;
 using MusicBud.Services;
 using System;
 using System.Collections.Generic;
@@ -31,6 +33,10 @@ namespace MusicBud
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IAuthService, AuthService>();
+            services.AddTransient<IContactService, ContactService>();
+            services.AddTransient<IContactRepository, ContactRepository>();
+
             services.AddHttpClient<ISpotifyAccountService, SpotifyAccountService>(c =>
             {
                 c.BaseAddress = new Uri("https://accounts.spotify.com/api/");
@@ -42,8 +48,11 @@ namespace MusicBud
                 c.DefaultRequestHeaders.Add("Accept", "application/.json");
             });
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            /* services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                 .AddEntityFrameworkStores<ApplicationDbContext>();*/
+
+            services.AddIdentity<User, IdentityRole>()
+              .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddControllersWithViews();
 
