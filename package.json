@@ -1,0 +1,26 @@
+{
+  "name": "musicbud",
+  "version": "1.0.0",
+  "description": "Music Recommender System using Facial Expressions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreiNegret/MusicBud.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndreiNegret/MusicBud/issues"
+  },
+  "homepage": "https://github.com/AndreiNegret/MusicBud#readme",
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "types-axios": "^0.0.8"
+  },
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}

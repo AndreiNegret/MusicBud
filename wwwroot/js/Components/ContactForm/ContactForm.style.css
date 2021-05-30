@@ -158,15 +158,15 @@
     display: none;
 }
 
-.contact-form .form-submitted#form-head {
+.contact-form .form-submitted #form-head {
     transform: translateY(250%);
 }
 
-.contact-form .form-submitted#form-head .pre {
+.contact-form .form-submitted #form-head .pre {
     display: none;
 }
 
-.contact-form .form-submitted#form-head .post {
+.contact-form .form-submitted #form-head .post {
     display: block;
 }
 

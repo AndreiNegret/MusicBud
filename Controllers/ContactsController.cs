@@ -71,6 +71,21 @@ namespace MusicBud.Controllers
             return View();
         }
 
+        // POST: Contacts/CreaSubmitMessage
+        [HttpPost]
+        public async Task<IActionResult> SubmitMessage([FromBody] Contact contact)
+        {
+            try
+            {
+                await _contactService.CreateContact(contact);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         // GET: Contacts/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {

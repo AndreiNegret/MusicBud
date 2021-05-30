@@ -202,48 +202,33 @@
             <img src="~/images/up-purp-512.png" height="250" width="250" alt="JSOFT" />
         </div>
         <!--== Scroll Top Area End ==-->
+
+        @RenderSection("Styles", false)
+
+        @RenderSection("Scripts", required: false)
+
         <!--== Pop-up menu after successful login ==-->
         @if (User.Identity.IsAuthenticated)
         {
             <script>
-                function getParameterByName(name, url) {
-                    if (!url) url = window.location.href;
-                    name = name.replace(/[\[\]]/g, '\\$&');
-                    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-                        results = regex.exec(url);
-                    if (!results) return null;
-                    if (!results[2]) return '';
-                    return decodeURIComponent(results[2].replace(/\+/g, ' '));
-                }
-
-                if (getParameterByName('loggedIn') === 'true') {
-                    $('.modal').modal('show');
-                    $("#login-confirmation-modal").modal('toggle');
-                }
-            </script>
-
-            <script>
-                $(document).ready(function () {
-                    $('[data-dismiss="modal"]').click(function () {
-                        $('.modal-backdrop').hide();
-                    });
+                $(document).ready(() => {
+                    if (getParameterByName('loggedIn') === 'true') {
+                        mainApp.showModal('login-modal');
+                    }
                 });
             </script>
         }
 
-
-        @RenderSection("Styles", false)
-
-
-        @RenderSection("Scripts", required: false)
-
         <!-- /.boxed -->
         <!-- Javascript -->
+        <!-- Vendor libs -->
 
         <script src="~/js/magnific-popup.min.js"></script>
         <script defer src="~/js/main.js"></script>
 
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
         <script type="text/javascript" src="~/js/mobileNav.js"></script>
 
@@ -256,6 +241,10 @@
 
         <script src="~/js/Components/ContactForm/ContactForm.template.js"></script>
         <link href="~/js/Components/ContactForm/ContactForm.style.css" rel="stylesheet" />
+
+        <!--- Modal -->
+        <script src="~/js/Components/Modal/Modal.template.js"></script>
+        <link href="~/js/Components/Modal/Modal.style.css" rel="stylesheet" />
 
         <script src="~/js/app.js"></script>
     </div>

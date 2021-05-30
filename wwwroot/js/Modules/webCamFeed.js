@@ -60,8 +60,9 @@ function sendToServer(blob) {
 }
 
 function openModalMessage(res) {
-    $('#emotion-send-modal').find('.placeholder').text(`You're emotion is ${res.emotion}`);
-    $('#emotion-send-modal').modal('show');
+    const emotionSendModal = mainApp.$refs['emotion-send-modal'];
+    emotionSendModal.setBodyText(`Your emotion is : ${res.emotion}`);
+    emotionSendModal.show();
 }
 
 let camIsShown = false,

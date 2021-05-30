@@ -218,3 +218,5 @@ C:\Users\Andrei Negret\source\repos\MusicBud\obj\Debug\netcoreapp3.1\Razor\Areas
 C:\Users\Andrei Negret\source\repos\MusicBud\obj\Debug\netcoreapp3.1\MusicBud.csprojAssemblyReference.cache
 C:\Users\Andrei Negret\source\repos\MusicBud\obj\Debug\netcoreapp3.1\Razor\Views\Contacts\Create.cshtml.g.cs
 C:\Users\Andrei Negret\source\repos\MusicBud\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_StatusMessage.cshtml.g.cs
+C:\Users\Andrei Negret\source\repos\MusicBud\bin\Debug\netcoreapp3.1\package-lock.json
+C:\Users\Andrei Negret\source\repos\MusicBud\bin\Debug\netcoreapp3.1\package.json

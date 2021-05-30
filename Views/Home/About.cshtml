@@ -74,20 +74,11 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="emotion-send-modal" tabindex="-1" role="dialog" aria-labelledby="emotion-send-modal" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            </div>
-            <div class="modal-body">
-              <div class="placeholder"></div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-info" data-dismiss="modal">Okay</button>
-            </div>
-        </div>
-    </div>
-</div>
+<Modal id="emotion-send-modal" ref="emotion-send-modal" :hide-cancel-btn="true">
+    <template v-slot:body="{ bodyText }">
+        {{ bodyText }}
+    </template>
+</Modal>
 
 <script defer src="~/js/Modules/webCamFeed.js"></script>
 <script src="~/js/Modules/face-api.js"></script>
