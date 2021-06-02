@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace MusicBud.Repository
 {
-    public class ContactRepository : RepositoryBase<Contact>, IContactRepository
+    public class RatingRepository : RepositoryBase<Rating>, IRatingRepository
     {
-        public ContactRepository(ApplicationDbContext repositoryContext)
-           : base(repositoryContext)
+        public RatingRepository(ApplicationDbContext repositoryContext)
+          : base(repositoryContext)
         {
         }
     }

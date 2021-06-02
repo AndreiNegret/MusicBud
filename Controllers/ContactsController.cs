@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MusicBud.Models;
-using MusicBud.Services;
+using MusicBud.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -71,7 +71,7 @@ namespace MusicBud.Controllers
             return View();
         }
 
-        // POST: Contacts/CreaSubmitMessage
+        // POST: Contacts/SubmitMessage
         [HttpPost]
         public async Task<IActionResult> SubmitMessage([FromBody] Contact contact)
         {

@@ -15,7 +15,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using MusicBud.Models;
-using MusicBud.Services;
+using MusicBud.Services.Interfaces;
 
 namespace MusicBud.Areas.Identity.Pages.Account
 {

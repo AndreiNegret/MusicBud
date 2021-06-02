@@ -62,6 +62,7 @@ function sendToServer(blob) {
 function openModalMessage(res) {
     const emotionSendModal = mainApp.$refs['emotion-send-modal'];
     emotionSendModal.setBodyText(`Your emotion is : ${res.emotion}`);
+    emotionSendModal.$store.commit('setEmotion', res.emotion);
     emotionSendModal.show();
 }
 

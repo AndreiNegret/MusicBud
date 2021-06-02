@@ -15,7 +15,7 @@ namespace MusicBud.Data
 
         public DbSet<User> User { get; set; }
         public DbSet<Contact> Contacts { get; set; }
-
+        public DbSet<Rating> Ratings { get; set; }
 
     }
 }

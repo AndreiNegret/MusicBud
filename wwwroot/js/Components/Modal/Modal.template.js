@@ -17,7 +17,7 @@
                         </div>
                         <!--Container-->
                         <div class="modal-body">
-                            <slot name="body" :bodyText="bodyText" :setBodyText="setBodyText"></slot>
+                            <slot name="body" :bodyText="bodyText" :setBodyText="setBodyText" :emitAction="emitAction"></slot>
                         </div>
                         <!--Footer-->
                         <div class="modal-footer">
@@ -131,6 +131,9 @@
         },
         setBodyText(text) {
             this.bodyText = text;
+        },
+        emitAction(action, data) {
+            Bus.$emit(action, data);
         }
     }
 });

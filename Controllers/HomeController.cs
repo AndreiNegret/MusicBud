@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using MusicBud.Areas.Identity.Pages.Account;
 using MusicBud.Models;
-using MusicBud.Services;
+using MusicBud.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

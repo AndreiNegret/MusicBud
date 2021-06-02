@@ -1,5 +1,6 @@
 ﻿const mainApp = new Vue({
     el: '#main',
+    store,
     methods: {
         showModal(id) {
             const ref = this.$refs[id];

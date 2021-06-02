@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MusicBud.Models;
-using MusicBud.Repository;
+using MusicBud.Repository.Interfaces;
+using MusicBud.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

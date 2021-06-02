@@ -2,6 +2,8 @@
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
 
+@{ var user = await UserManager.GetUserAsync(User); }
+
 <div class="login-section">
 
     @if (SignInManager.IsSignedIn(User))
@@ -14,6 +16,33 @@
                 <a id="logout" class="nav-link" onclick="document.getElementById('logout-form').submit();">Logout</a>
             </form>
         </div>
+
+        <script>
+            var decodeEntities = (function () {
+                // this prevents any overhead from creating the object each time
+                var element = document.createElement('div');
+
+                function decodeHTMLEntities(str) {
+                    if (str && typeof str === 'string') {
+                        // strip script/html tags
+                        str = str.replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '');
+                        str = str.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '');
+                        element.innerHTML = str;
+                        str = element.textContent;
+                        element.textContent = '';
+                    }
+
+                    return str;
+                }
+
+                return decodeHTMLEntities;
+            })();
+
+            setTimeout(() => {
+                const user = JSON.parse(decodeEntities('@Utils.ToJson(user)'));
+                mainApp.$store.commit('setUser', user);
+            }, 1000);
+        </script>
     }
     else
     {

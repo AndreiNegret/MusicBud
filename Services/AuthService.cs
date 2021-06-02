@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using MusicBud.Models;
+using MusicBud.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
