@@ -48,22 +48,35 @@
 
 <!-- Modal -->
 <Rating>
-    <Modal id="emotion-send-modal" ref="emotion-send-modal" :hide-cancel-btn="true">
-        <template v-slot:body="{ bodyText, emitAction }">
-            <div class="text-center">{{ bodyText }}</div>
-            <div>Did we guess it ?</div>
-            <div class="rating">
-                <!-- Thumbs up -->
-                <div class="like grow" @@click="emitAction('rating:like-action', $event)">
-                    <i class="fa fa-thumbs-up fa-3x like" aria-hidden="true"></i>
+    <template slot-scope="{ pickedTrack, action }">
+        <Modal id="emotion-send-modal" ref="emotion-send-modal" :hide-cancel-btn="true">
+            <template v-slot:body="{ bodyText, emitAction, hide }">
+                <div class="text-center">{{ bodyText }}</div>
+                <div>Did we guess it ?</div>
+                <div class="rating" v-if="!pickedTrack && action !== 'dislike'">
+                    <!-- Thumbs up -->
+                    <div class="like grow" @@click="emitAction('rating:like-action', $event)">
+                        <i class="fa fa-thumbs-up fa-3x like" aria-hidden="true"></i>
+                    </div>
+                    <!-- Thumbs down -->
+                    <div class="dislike grow" @@click="emitAction('rating:dislike-action', $event);">
+                        <i class="fa fa-thumbs-down fa-3x like" aria-hidden="true"></i>
+                    </div>
                 </div>
-                <!-- Thumbs down -->
-                <div class="dislike grow" @@click="emitAction('rating:dislike-action', $event)">
-                    <i class="fa fa-thumbs-down fa-3x like" aria-hidden="true"></i>
+                <div v-else-if="action === 'like'" class="picked-track">
+                    <!-- Aici se randeaza props pt track -->
+                    <div>{{ pickedTrack.name }}</div>
+                    <img :src="pickedTrack.album.images[0].url" />
+                    <a :href="pickedTrack.preview_url" target="_blank">Preview</a>
+                    <a :href="pickedTrack.external_urls.spotify" target="_blank">Listen</a>
                 </div>
-            </div>
-        </template>
-    </Modal>
+                <div v-else-if="action === 'dislike'">
+                    <!-- Aici vine textul pt dislike -->
+                    <div>We're sorry for the inconvenience. We're stil working to make sure your experience is as pleasant as ever!</div>
+                </div>
+            </template>
+        </Modal>
+    </template>
 </Rating>
 
 <script defer src="~/js/Modules/webCamFeed.js"></script>

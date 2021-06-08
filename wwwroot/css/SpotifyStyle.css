@@ -48,6 +48,27 @@ ul {
     cursor: pointer;
 }
 
+/* === HOME PAGE RESPONSIVE CSS === */
+.slideshowcontent h1 {
+    font-size: 70px;
+}
+
+.slideshowcontent {
+    font-size: 17px;
+}
+
+.slideshowcontent {
+    color: #fff;
+    font-weight: 600;
+    line-height: 2;
+    margin-top: 30px;
+}
+
+.slideshowcontent h1 {
+    color: #0195eb;
+    margin-bottom: 20px;
+}
+
 /** Navbar ---------------------------------- */
 header {
     height: 54px;

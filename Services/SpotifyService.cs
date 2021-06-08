@@ -1,4 +1,5 @@
-﻿using MusicBud.Models;
+﻿using Microsoft.Extensions.Configuration;
+using MusicBud.Models;
 using MusicBud.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -13,15 +14,34 @@ namespace MusicBud.Services
     public class SpotifyService : ISpotifyService
     {
         private readonly HttpClient _httpClient;
+        private readonly ISpotifyAccountService _spotifyAccountService;
+        private readonly IConfiguration _config;
+        private string _token = null;
 
-        public SpotifyService(HttpClient httpClient)
+        public SpotifyService(
+            HttpClient httpClient,
+            ISpotifyAccountService spotifyAccountService,
+            IConfiguration config)
         {
             _httpClient = httpClient;
+            _spotifyAccountService = spotifyAccountService;
+            _config = config;
         }
 
-        public async Task<IEnumerable<Release>> GetNewReleases(string countryCode, int limit, string accessToken)
+        private async Task SetToken()
         {
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            var token = await _spotifyAccountService.GetToken(_config["Spotify:ClientId"], _config["Spotify:ClientSecret"]);
+            _token = token;
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
+        }
+
+
+        public async Task<IEnumerable<Release>> GetNewReleases(string countryCode, int limit)
+        {
+            if (_token == null)
+            {
+                await SetToken();
+            }
 
             var response = await _httpClient.GetAsync($"browse/new-releases?country={countryCode}&limit={limit}");
 
@@ -38,6 +58,29 @@ namespace MusicBud.Services
                 Link = i.external_urls.spotify,
                 Artists = string.Join(",", i.artists.Select(i => i.name))
             });
+        }
+
+        public async Task<IEnumerable<Track>> GetPlaylistTracks(string playlistId)
+        {
+            if (_token == null)
+            {
+                await SetToken();
+            }
+
+            try
+            {
+
+                var response = await _httpClient.GetAsync($"playlists/{playlistId}/tracks");
+
+                response.EnsureSuccessStatusCode();
+
+                using var responseStream = await response.Content.ReadAsStreamAsync();
+                var responseObject = await JsonSerializer.DeserializeAsync<PlaylistResult>(responseStream);
+                return responseObject?.items.Select(item => item.track);
+            } catch(Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

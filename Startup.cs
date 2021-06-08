@@ -40,6 +40,7 @@ namespace MusicBud
             services.AddTransient<IRatingService, RatingService>();
             services.AddTransient<IContactRepository, ContactRepository>();
             services.AddTransient<IRatingRepository, RatingRepository>();
+            services.AddTransient<IPlaylistEmotionRepository, PlaylistEmotionRepository>();
 
             services.AddHttpClient<ISpotifyAccountService, SpotifyAccountService>(c =>
             {
@@ -98,7 +99,8 @@ namespace MusicBud
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, 
+                    IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {

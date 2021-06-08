@@ -16,18 +16,10 @@ namespace MusicBud.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ISpotifyAccountService _spotifyAccountService;
-        private readonly IConfiguration _configuration;
         private readonly ISpotifyService _spotifyService;
-       
 
-        public HomeController(
-            ISpotifyAccountService spotifyAccountService, 
-            IConfiguration configuration,
-            ISpotifyService spotifyService)
+        public HomeController(ISpotifyService spotifyService)
         {
-            _spotifyAccountService = spotifyAccountService;
-            _configuration = configuration;
             _spotifyService = spotifyService;
         }
 
@@ -47,9 +39,7 @@ namespace MusicBud.Controllers
         {
             try
             {
-                var token = await _spotifyAccountService.GetToken(_configuration["Spotify:ClientId"], _configuration["Spotify:ClientSecret"]);
-
-                var newReleases = await _spotifyService.GetNewReleases("RO", 20, token);
+                var newReleases = await _spotifyService.GetNewReleases("RO", 20);
 
                 return newReleases;
             }
@@ -61,7 +51,7 @@ namespace MusicBud.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         public IActionResult About()
         {
             return View();

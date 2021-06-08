@@ -25,10 +25,29 @@ namespace MusicBud
             return json;
         }
 
-        public static T PickSong<T>(List<T> songs)
+        public static T PickSong<T>(IEnumerable<T> songs)
         {
             Random random = new Random(DateTime.Now.Millisecond);
-            return songs.ElementAt(random.Next(0, songs.Count));
+            return songs.ElementAt(random.Next(0, songs.Count()));
+        }
+
+        public static IEnumerable<T> ShuffleList<T>(IEnumerable<T> list)
+        {
+            var arr = list.ToArray();
+            Random rand = new Random();
+            for (int currentIndex = arr.Length - 1; currentIndex > 0; currentIndex--)
+            {
+                int nextIndex = rand.Next(currentIndex + 1);
+                Swap(arr, currentIndex, nextIndex);
+            }
+            return arr.ToList();
+        }
+
+        private static void Swap<T>(IList<T> array, int firstIndex, int secondIndex)
+        {
+            T temp = array[secondIndex];
+            array[secondIndex] = array[firstIndex];
+            array[firstIndex] = temp;
         }
     }
 }

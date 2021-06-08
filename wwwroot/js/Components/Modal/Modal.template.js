@@ -17,7 +17,7 @@
                         </div>
                         <!--Container-->
                         <div class="modal-body">
-                            <slot name="body" :bodyText="bodyText" :setBodyText="setBodyText" :emitAction="emitAction"></slot>
+                            <slot name="body" :bodyText="bodyText" :setBodyText="setBodyText" :emitAction="emitAction" :hide="hide"><slot>
                         </div>
                         <!--Footer-->
                         <div class="modal-footer">
@@ -112,7 +112,7 @@
     },
     methods: {
         ok() {
-            this.$emit('ok');
+            Bus.$emit('modal:ok');
             if (this.closeWhenOK) {
                 this.isVisible = false;
             }
@@ -121,7 +121,7 @@
             this.isVisible = true;
         },
         hide() {
-            this.$emit('hide');
+            Bus.$emit('modal:hide');
             this.isVisible = false;
         },
         clickMask() {
